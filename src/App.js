@@ -16,4 +16,8 @@ function Header() {
   return <h1>🌴 Go Far Away 💼</h1>;
 }
 
+function Form() {}
+function ParkingList() {}
+function Stats() {}
+
 export default App;
