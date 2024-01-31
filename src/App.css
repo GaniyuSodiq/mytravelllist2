@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
