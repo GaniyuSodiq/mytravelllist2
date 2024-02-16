@@ -19,7 +19,14 @@ function App() {
         item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
-    console.log(items);
+  }
+
+  function handleClearList() {
+    let confirmed = window.confirm(
+      "Are you sure you want to delete the whole list??"
+    );
+
+    if (confirmed) setItems([]);
   }
 
   return (
@@ -30,6 +37,7 @@ function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>
@@ -83,7 +91,7 @@ function Form({ onAddItem }) {
     </form>
   );
 }
-function ParkingList({ items, onDeleteItem, onToggleItem }) {
+function ParkingList({ items, onDeleteItem, onToggleItem, onClearList }) {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems;
@@ -118,7 +126,7 @@ function ParkingList({ items, onDeleteItem, onToggleItem }) {
           <option value={"description"}>sort by description</option>
           <option value={"input"}>sort by input order</option>
         </select>
-        <button>Clear List</button>
+        <button onClick={() => onClearList()}>Clear List</button>
       </div>
     </div>
   );
